@@ -65,4 +65,7 @@ Route::middleware('auth')->group(function () {
 
     //role manajement
     Route::resource('role', App\Http\Controllers\RoleController::class);
+    Route::resource('user', App\Http\Controllers\UserController::class);
+    Route::get('user/{id}/roles', [\App\Http\Controllers\UserController::class, 'editRole'])->name('user.roles');
+    Route::post('user/{id}/updateRoles', [\App\Http\Controllers\UserController::class, 'updateRoles'])->name('user.updateRoles');
 });
